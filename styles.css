@@ -1,0 +1,47 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-text {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#highscore:hover {
+    opacity: .5;
+}
+
+main {
+    margin-left: 30%;  
+    margin-right: 30%;
+    text-align: center;
+}
+
+.main-header {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.main-paragraph {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: .5;
+}
