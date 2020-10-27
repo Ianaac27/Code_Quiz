@@ -16,34 +16,20 @@ var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
 var startButton = document.getElementById("start");
 
-startButton.addEventListener("click", function(event) {
-    var secondsLeft = 75;
-    timer.textContent = "Timer= " + secondsLeft;
-    setInterval()
+var secondsLeft = 76;
 
+startButton.addEventListener("click", function(event) {
     var timerInterval = setInterval(function() {
     secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
 
     if(secondsLeft === 0) {
         clearInterval(timerInterval);
         sendMessage();
       }
 
-    }, 75000);  
+    }, 1000);  
 });
-
-// function setTime() {
-//     var timerInterval = setInterval(function() {
-//       secondsLeft--;
-  
-//       if(secondsLeft === 0) {
-//         clearInterval(timerInterval);
-//         sendMessage();
-//       }
-//     }, 75000);
-// }
-
-console.log(timer);
 
 function sendMessage() {
     mainHeader.textContent = "Time Elapsed";
@@ -51,4 +37,3 @@ function sendMessage() {
   
   }
 
-//   setTime();
