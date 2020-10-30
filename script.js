@@ -16,7 +16,7 @@ var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
 var startButton = document.getElementById("start");
 
-var secondsLeft = 76;
+var secondsLeft = 61;
 
 startButton.addEventListener("click", function(event) {
     var timerInterval = setInterval(function() {
@@ -37,3 +37,26 @@ function sendMessage() {
   
   }
 
+var questions = [
+  { 
+  'question': 'What color are apples?',
+  'answers': ['Red','Blue','Purple','White'],
+  'correctAnswer': 0
+}, {
+  'question': 'How long is a mile?',
+  'answers': ['450 ft','5280 ft','2580 ft','4500 ft'],
+  'correctAnswer': 1
+}, {
+  'question': 'What is the name of the football team based in Seattle?',
+  'answers': ['Mariners','Cougars','Seahawks','Totems'],
+  'correctAnswer': 2
+}, {
+  'question': 'How many letters is the word Mississippi?',
+  'answers': ['11','10','12','9'],
+  'correctAnswer': 2
+}, {
+  'question': 'Who was the 2nd President of the United States?',
+  'answers': ['Thomas Jefferson','Abraham Lincoln','Andrew Jackson','John Adams'],
+  'correctAnswer': 3
+}
+];
