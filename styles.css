@@ -34,14 +34,35 @@ main {
     margin-bottom: 20px;
 }
 
-button {
+#pointer {
     background-color: blueviolet;
     color: white;
     padding: 5px;
     border: none;
     border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
 }
 
 button:hover {
     opacity: .5;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-button1, .answer-button2, .answer-button3, .answer-button4 {
+    background-color: gray;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
 }

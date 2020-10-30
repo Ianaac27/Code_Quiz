@@ -14,27 +14,37 @@
 var timer = document.getElementById("time");
 var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
-var startButton = document.getElementById("start");
+var pointerButton = document.getElementById("pointer");
+var answerButton1 = document.querySelector(".answer-button1")
+var answerButton2 = document.querySelector(".answer-button2")
+var answerButton3 = document.querySelector(".answer-button3")
+var answerButton4 = document.querySelector(".answer-button4")
 
 var secondsLeft = 61;
 
-startButton.addEventListener("click", function(event) {
+pointerButton.addEventListener("click", function(event) {
     var timerInterval = setInterval(function() {
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
+    navigateQuestions()
 
     if(secondsLeft === 0) {
         clearInterval(timerInterval);
         sendMessage();
       }
 
-    }, 1000);  
+    }, 1000); 
+    
 });
 
 function sendMessage() {
     mainHeader.textContent = "Time Elapsed";
     mainParagraph.textContent = "Please try again";
-  
+    answerButton1.textContent = "Better";
+    answerButton2.textContent = "Luck";
+    answerButton3.textContent = "Next";
+    answerButton4.textContent = "Time";
+
   }
 
 var questions = [
@@ -60,3 +70,14 @@ var questions = [
   'correctAnswer': 3
 }
 ];
+
+function navigateQuestions() {
+
+  for (var i = 0; i < questions.length; i++);
+    mainParagraph.textContent = questions[0].question;
+    answerButton1.textContent = questions[0].answers[0];
+    answerButton2.textContent = questions[0].answers[1];
+    answerButton3.textContent = questions[0].answers[2];
+    answerButton4.textContent = questions[0].answers[3];
+
+}
