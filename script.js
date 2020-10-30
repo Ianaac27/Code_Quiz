@@ -43,7 +43,8 @@ function sendMessage() {
     answerButton1.textContent = "Better";
     answerButton2.textContent = "Luck";
     answerButton3.textContent = "Next";
-    answerButton4.textContent = "Time";
+    answerButton4.textContent = "Time";    
+    pointerButton.textContent = "Restart";
 
   }
 
@@ -73,11 +74,13 @@ var questions = [
 
 function navigateQuestions() {
 
-  for (var i = 0; i < questions.length; i++);
+  // for (var i = 0; i < questions.length; i++);
     mainParagraph.textContent = questions[0].question;
     answerButton1.textContent = questions[0].answers[0];
     answerButton2.textContent = questions[0].answers[1];
     answerButton3.textContent = questions[0].answers[2];
     answerButton4.textContent = questions[0].answers[3];
+    pointerButton.textContent = "Next";
+
 
 }
