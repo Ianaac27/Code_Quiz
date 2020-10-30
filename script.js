@@ -14,7 +14,7 @@
 var timer = document.getElementById("time");
 var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
-var pointerButton = document.getElementById("pointer");
+var startButton = document.getElementById("start");
 var answerButton1 = document.querySelector(".answer-button1")
 var answerButton2 = document.querySelector(".answer-button2")
 var answerButton3 = document.querySelector(".answer-button3")
@@ -22,11 +22,12 @@ var answerButton4 = document.querySelector(".answer-button4")
 
 var secondsLeft = 61;
 
-pointerButton.addEventListener("click", function(event) {
+startButton.addEventListener("click", function(event) {
     var timerInterval = setInterval(function() {
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
-    navigateQuestions()
+    startButton.remove()
+    navigateFirstQuestion()
 
     if(secondsLeft === 0) {
         clearInterval(timerInterval);
@@ -44,8 +45,6 @@ function sendMessage() {
     answerButton2.textContent = "Luck";
     answerButton3.textContent = "Next";
     answerButton4.textContent = "Time";    
-    pointerButton.textContent = "Restart";
-
   }
 
 var questions = [
@@ -72,15 +71,62 @@ var questions = [
 }
 ];
 
-function navigateQuestions() {
-
-  // for (var i = 0; i < questions.length; i++);
+function navigateFirstQuestion() {
+  // for (var i; i < questions.length; i++);
     mainParagraph.textContent = questions[0].question;
     answerButton1.textContent = questions[0].answers[0];
     answerButton2.textContent = questions[0].answers[1];
     answerButton3.textContent = questions[0].answers[2];
     answerButton4.textContent = questions[0].answers[3];
-    pointerButton.textContent = "Next";
 
+    answerButton1.addEventListener("click", function(event) {
+      if (questions[0].answers[0] == questions[0].correctAnswer)
+      alert("correct");
+      // secondsLeft += 5;
+      navigateSecondQuestion()
+    }),
+    answerButton2.addEventListener("click", function(event) {
+      // alert("Wrong!");
+      event.preventDefault();
+      // secondsLeft -= 10;
+      navigateSecondQuestion()
+    }),
+    answerButton3.addEventListener("click", function(event) {
+      // alert("Wrong!");
+      event.preventDefault();
+      // secondsLeft -= 10;
+      navigateSecondQuestion()
+    }),
+    answerButton4.addEventListener("click", function(event) {
+      // alert("Wrong!");
+      event.preventDefault();
+      // secondsLeft -= 10;
+      navigateSecondQuestion()
+    })
+  }
 
-}
+  function navigateSecondQuestion() {
+      mainParagraph.textContent = questions[1].question;
+      answerButton1.textContent = questions[1].answers[0];
+      answerButton2.textContent = questions[1].answers[1];
+      answerButton3.textContent = questions[1].answers[2];
+      answerButton4.textContent = questions[1].answers[3];
+  
+      answerButton1.addEventListener("click", function(event) {
+        // alert("Wrong!");
+        secondsLeft - 10;
+      }),
+      answerButton2.addEventListener("click", function(event) {
+        // alert("Correct!");
+        secondsLeft + 5;
+      }),
+      answerButton3.addEventListener("click", function(event) {
+        // alert("Wrong!");
+        secondsLeft - 10;
+      }),
+      answerButton4.addEventListener("click", function(event) {
+        // alert("Wrong!");
+        secondsLeft - 10;
+        
+      })
+    }
