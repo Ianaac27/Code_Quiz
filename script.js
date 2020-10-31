@@ -23,18 +23,18 @@ var answerButton4 = document.querySelector(".answer-button4")
 var secondsLeft = 61;
 
 startButton.addEventListener("click", function(event) {
-    var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timer.textContent = "Time: " + secondsLeft;
-    startButton.remove()
+    // var timerInterval = setInterval(function() {
+    // secondsLeft--;
+    // timer.textContent = "Time: " + secondsLeft;
+    startButton.textContent = "Next";
     navigateFirstQuestion()
 
-    if(secondsLeft === 0) {
-        clearInterval(timerInterval);
-        sendMessage();
-      }
+    // if(secondsLeft === 0) {
+    //     clearInterval(timerInterval);
+    //     sendMessage();
+    //   }
 
-    }, 1000); 
+    // }, 1000); 
     
 });
 
@@ -72,7 +72,6 @@ var questions = [
 ];
 
 function navigateFirstQuestion() {
-  // for (var i; i < questions.length; i++);
     mainParagraph.textContent = questions[0].question;
     answerButton1.textContent = questions[0].answers[0];
     answerButton2.textContent = questions[0].answers[1];
@@ -80,29 +79,24 @@ function navigateFirstQuestion() {
     answerButton4.textContent = questions[0].answers[3];
 
     answerButton1.addEventListener("click", function(event) {
-      if (questions[0].answers[0] == questions[0].correctAnswer)
-      alert("correct");
       // secondsLeft += 5;
-      navigateSecondQuestion()
+      mainHeader.textContent = "Correct!"
     }),
     answerButton2.addEventListener("click", function(event) {
-      // alert("Wrong!");
-      event.preventDefault();
       // secondsLeft -= 10;
-      navigateSecondQuestion()
+      mainHeader.textContent = "Wrong!"
     }),
     answerButton3.addEventListener("click", function(event) {
-      // alert("Wrong!");
-      event.preventDefault();
       // secondsLeft -= 10;
-      navigateSecondQuestion()
+      mainHeader.textContent = "Wrong!"
     }),
     answerButton4.addEventListener("click", function(event) {
-      // alert("Wrong!");
-      event.preventDefault();
       // secondsLeft -= 10;
-      navigateSecondQuestion()
-    })
+      mainHeader.textContent = "Wrong!"
+    }),
+    startButton.addEventListener("click", function(event) {
+      navigateSecondQuestion()      
+    });
   }
 
   function navigateSecondQuestion() {
@@ -113,20 +107,106 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[1].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        // alert("Wrong!");
-        secondsLeft - 10;
+        // secondsLeft += 5;
+        mainHeader.textContent = "Correct!"
       }),
       answerButton2.addEventListener("click", function(event) {
-        // alert("Correct!");
-        secondsLeft + 5;
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
       }),
       answerButton3.addEventListener("click", function(event) {
-        // alert("Wrong!");
-        secondsLeft - 10;
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
       }),
       answerButton4.addEventListener("click", function(event) {
-        // alert("Wrong!");
-        secondsLeft - 10;
-        
-      })
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      startButton.addEventListener("click", function(event) {
+        navigateThirdQuestion()      
+      });
+    }
+
+    function navigateThirdQuestion() {
+      mainParagraph.textContent = questions[2].question;
+      answerButton1.textContent = questions[2].answers[0];
+      answerButton2.textContent = questions[2].answers[1];
+      answerButton3.textContent = questions[2].answers[2];
+      answerButton4.textContent = questions[2].answers[3];
+  
+      answerButton1.addEventListener("click", function(event) {
+        // secondsLeft += 5;
+        mainHeader.textContent = "Correct!"
+      }),
+      answerButton2.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton3.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton4.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      startButton.addEventListener("click", function(event) {
+        navigateFourthQuestion()      
+      });
+    }
+
+    function navigateFourthQuestion() {
+      mainParagraph.textContent = questions[3].question;
+      answerButton1.textContent = questions[3].answers[0];
+      answerButton2.textContent = questions[3].answers[1];
+      answerButton3.textContent = questions[3].answers[2];
+      answerButton4.textContent = questions[3].answers[3];
+  
+      answerButton1.addEventListener("click", function(event) {
+        // secondsLeft += 5;
+        mainHeader.textContent = "Correct!"
+      }),
+      answerButton2.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton3.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton4.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      startButton.addEventListener("click", function(event) {
+        navigateFifthQuestion()      
+      });
+    }
+
+    function navigateFifthQuestion() {
+      mainParagraph.textContent = questions[4].question;
+      answerButton1.textContent = questions[4].answers[0];
+      answerButton2.textContent = questions[4].answers[1];
+      answerButton3.textContent = questions[4].answers[2];
+      answerButton4.textContent = questions[4].answers[3];
+  
+      answerButton1.addEventListener("click", function(event) {
+        // secondsLeft += 5;
+        mainHeader.textContent = "Correct!"
+      }),
+      answerButton2.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton3.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      answerButton4.addEventListener("click", function(event) {
+        // secondsLeft -= 10;
+        mainHeader.textContent = "Wrong!"
+      }),
+      startButton.addEventListener("click", function(event) {
+            
+      });
     }
