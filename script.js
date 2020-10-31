@@ -22,19 +22,21 @@ var answerButton4 = document.querySelector(".answer-button4")
 var previousAnswer = document.getElementById("previous");
 var tryAgain = document.getElementById("try-again");
 
+var timerInterval;
+
 var secondsLeft = 11;
 
 startButton.addEventListener("click", function(event) {
     
-  var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
-    }
-    }, 1000); 
+     if(secondsLeft === 0) {
+       clearInterval(timerInterval);
+       sendMessage();
+     }
+   }, 1000); 
 
     startButton.remove()
     navigateFirstQuestion()
@@ -215,18 +217,27 @@ function navigateFirstQuestion() {
   
       answerButton1.addEventListener("click", function(event) {
         // secondsLeft += 5; 
+        clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
       }),
+
       answerButton2.addEventListener("click", function(event) {
         // secondsLeft -= 10; 
+        clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
       }),
+      
       answerButton3.addEventListener("click", function(event) {
         // secondsLeft -= 10;  
+        clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
       }),
+      
       answerButton4.addEventListener("click", function(event) {
         // secondsLeft -= 10;
-        previousAnswer.textContent = "Previous Answer: Wrong!"
+        clearInterval(timerInterval);
+        previousAnswer.textContent = "Previous Answer: " + correctAnswer;
       })
     }
+
+    // console.log(score);
