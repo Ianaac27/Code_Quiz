@@ -81,3 +81,26 @@ button:hover {
 #previous {
     font-weight: bold;
 }
+
+#high-scores {
+    display: none;
+}
+
+#initials {
+ background-color: lightgray;
+}
+
+#initials-button {
+    background-color: blueviolet;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+#initials-button:hover {
+    opacity: .5;
+    background-color: lightblue;
+}
