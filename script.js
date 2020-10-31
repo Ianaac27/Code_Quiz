@@ -1,14 +1,14 @@
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
-// THEN a timer starts and I am presented with a question
+// THEN a timer starts and I am presented with a question -------CHECK!!!
 // WHEN I answer a question
-// THEN I am presented with another question
+// THEN I am presented with another question -------CHECK!!!
 // WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
+// THEN time is subtracted from the clock --------- HAVE IDEA-
 // WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
+// THEN the game is over ---------------------- HALF/
 // WHEN the game is over
-// THEN I can save my initials and score
+// THEN I can save my initials and score ------------------NOT YET
 //-----------------------------------------------------------
 
 var timer = document.getElementById("time");
@@ -20,32 +20,47 @@ var answerButton2 = document.querySelector(".answer-button2")
 var answerButton3 = document.querySelector(".answer-button3")
 var answerButton4 = document.querySelector(".answer-button4")
 var previousAnswer = document.getElementById("previous");
+var tryAgain = document.getElementById("try-again");
 
-var secondsLeft = 61;
+var secondsLeft = 11;
 
 startButton.addEventListener("click", function(event) {
-    // var timerInterval = setInterval(function() {
-    // secondsLeft--;
-    // timer.textContent = "Time: " + secondsLeft;
+    
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+    }, 1000); 
+
     startButton.remove()
     navigateFirstQuestion()
-
-    // if(secondsLeft === 0) {
-    //     clearInterval(timerInterval);
-    //     sendMessage();
-    //   }
-
-    // }, 1000); 
-    
 });
 
 function sendMessage() {
     mainHeader.textContent = "Time Elapsed";
-    mainParagraph.textContent = "Please try again";
+    mainParagraph.textContent = "Yikes!";
     answerButton1.textContent = "Better";
     answerButton2.textContent = "Luck";
     answerButton3.textContent = "Next";
-    answerButton4.textContent = "Time";    
+    answerButton4.textContent = "Time";
+    tryAgain.textContent = "Click a button above if you want to try again!";
+    
+    answerButton1.addEventListener("click", function(event) {
+      location.reload();
+    }),
+    answerButton2.addEventListener("click", function(event) {
+      location.reload();
+    }),
+    answerButton3.addEventListener("click", function(event) {
+      location.reload();
+    }),
+    answerButton4.addEventListener("click", function(event) {
+      location.reload();
+    })
   }
 
 var questions = [
