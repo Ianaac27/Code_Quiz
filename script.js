@@ -22,12 +22,12 @@ var answerButton4 = document.querySelector(".answer-button4")
 var previousAnswer = document.getElementById("previous");
 var tryAgain = document.getElementById("try-again");
 
-var correctAnswer= "Correct!"; //May need to turn these into functions, so we can make a rule on the time. Not set time change on buttons.
+var correctAnswer= "Correct!";
 var wrongAnswer= "Wrong!";
 var score;
 
 var timerInterval;
-var secondsLeft = 11;
+var secondsLeft = 61;
 
 startButton.addEventListener("click", function(event) {
     
@@ -103,25 +103,26 @@ function navigateFirstQuestion() {
     answerButton4.textContent = questions[0].answers[3];
 
     answerButton1.addEventListener("click", function(event) {
-      secondsLeft += 10;
       navigateSecondQuestion()   
       previousAnswer.textContent = "Previous Answer: " + correctAnswer;
+      secondsLeft += 5;
     }),
     answerButton2.addEventListener("click", function(event) {
-      secondsLeft -= 10;
       navigateSecondQuestion()   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+      secondsLeft -= 5;
     }),
     answerButton3.addEventListener("click", function(event) {
-      secondsLeft -= 10;
       navigateSecondQuestion()   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+      secondsLeft -= 5;
     }),
     answerButton4.addEventListener("click", function(event) {
-      secondsLeft -= 10;
       navigateSecondQuestion()   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+      secondsLeft -= 5;
     })
+    // console.log(score);
   }
 
   function navigateSecondQuestion() {
@@ -132,24 +133,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[1].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        secondsLeft -= 5;
         navigateThirdQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 2;
       }),
       answerButton2.addEventListener("click", function(event) {
-        secondsLeft += 5;
         navigateThirdQuestion()   
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
+        secondsLeft += 2;
       }),
       answerButton3.addEventListener("click", function(event) {
-        secondsLeft -= 5;
         navigateThirdQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 2;
       }),
       answerButton4.addEventListener("click", function(event) {
-        secondsLeft -= 5;
         navigateThirdQuestion()    
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 2;
       })
     }
 
@@ -161,24 +162,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[2].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        secondsLeft -= 3;
         navigateFourthQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft - 1;
       }),
       answerButton2.addEventListener("click", function(event) {
-        secondsLeft -= 3;
         navigateFourthQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft - 1; 
       }),
       answerButton3.addEventListener("click", function(event) {
-        secondsLeft += 3;
         navigateFourthQuestion()   
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
+        secondsLeft += 1;
       }),
       answerButton4.addEventListener("click", function(event) {
-        secondsLeft -= 3;
         navigateFourthQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft - 1;
       })
     }
 
@@ -190,24 +191,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[3].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        secondsLeft -= 2;
         navigateFifthQuestion()   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 1;
       }),
       answerButton2.addEventListener("click", function(event) {
-        secondsLeft -= 2;
         navigateFifthQuestion()     
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 1;
       }),
       answerButton3.addEventListener("click", function(event) {
-        secondsLeft += 2;
         navigateFifthQuestion()      
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
+        secondsLeft += 1;
       }),
       answerButton4.addEventListener("click", function(event) {
-        secondsLeft -= 2;
         navigateFifthQuestion()     
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
+        secondsLeft -= 1;
       })
     }
 
@@ -221,27 +222,27 @@ function navigateFirstQuestion() {
       answerButton1.addEventListener("click", function(event) {
         clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        score = secondsLeft -= 1; 
+        score = secondsLeft - 1; 
 
       }),
-
-      console.log(score);
 
       answerButton2.addEventListener("click", function(event) {
         clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        score = secondsLeft -= 1; 
+        score = secondsLeft - 1;  
       }),
       
       answerButton3.addEventListener("click", function(event) { 
         clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        score = secondsLeft -= 1; 
+        score = secondsLeft - 1;  
       }),
       
       answerButton4.addEventListener("click", function(event) {
         clearInterval(timerInterval);
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-        score = secondsLeft += 5; 
+        score = secondsLeft + 1;
       })
+
+      console.log(score);
     }
