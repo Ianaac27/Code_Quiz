@@ -8,7 +8,7 @@
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over ---------------------- CHECK!!!
 // WHEN the game is over
-// THEN I can save my initials and score ------------------NOT YET -
+// THEN I can save my initials and score ------------------NOT YET "Add a HTML and JS page for high scores" "Research local storage for highscores"
 //-----------------------------------------------------------
 
 var timer = document.getElementById("time");

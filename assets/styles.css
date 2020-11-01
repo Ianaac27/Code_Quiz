@@ -104,3 +104,41 @@ button:hover {
     opacity: .5;
     background-color: lightblue;
 }
+
+/* High-Scores page */
+
+#high-score-header {
+        font-weight: bold;
+        font-size: 26px;
+}
+
+#players {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#players li {
+    font-size: 15px;
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#back {
+    background-color: blueviolet;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+#score-list {
+    border-style: dashed;
+    border-color: darkgray;
+    padding-left: 250px;
+    padding-right: 250px;
+}
