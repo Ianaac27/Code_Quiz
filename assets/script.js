@@ -4,11 +4,11 @@
 // WHEN I answer a question
 // THEN I am presented with another question -------CHECK!!!
 // WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock --------- CHECK!!!
+// THEN time is subtracted from the clock --------- NEED FIX
 // WHEN all questions are answered or the timer reaches 0
 // THEN the game is over ---------------------- CHECK!!!
 // WHEN the game is over
-// THEN I can save my initials and score ------------------NOT YET "Add a HTML and JS page for high scores" "Research local storage for highscores"
+// THEN I can save my initials and score ------------------Have scores sent to localstorage, cannot display yet
 //-----------------------------------------------------------
 
 var viewHighScore = document.getElementById("view-highscore");
@@ -277,16 +277,7 @@ function navigateFirstQuestion() {
     function storeScore(event) {
       event.preventDefault()
       var signature = initials.value;
-      // var playerArray = [];
-      
-      // if(JSON.parse(localStorage.getItem("array")) === undefined){
-      //     playerArray =[{name : signature, score : secondsLeft}];
-      // }
-      // else{
-      //     playerArray = JSON.parse(localStorage.getItem("array"));
-      // }
-
-      // localStorage.setItem("array", JSON.stringify(playerArray));
+  
       localStorage.setItem("player-score", secondsLeft + " " + signature);
       
       window.location.href = "storage.html";
