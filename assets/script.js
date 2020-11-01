@@ -11,6 +11,8 @@
 // THEN I can save my initials and score ------------------NOT YET "Add a HTML and JS page for high scores" "Research local storage for highscores"
 //-----------------------------------------------------------
 
+var viewHighScore = document.getElementById("view-highscore");
+// var goHome = document.getElementById("go-home");
 var timer = document.getElementById("time");
 var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
@@ -271,5 +273,11 @@ function navigateFirstQuestion() {
       highScores.style.display = "block";
     }
       
-    
-  
+  //Viewing high-scores from home page
+  viewHighScore.addEventListener("click", function(event) {
+    window.location.href = "storage.html";
+
+  });
+
+  //Going back to home page
+ 

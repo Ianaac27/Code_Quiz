@@ -13,7 +13,7 @@ header {
     font-weight: normal;
 }
 
-#highscore:hover {
+#view-highscore:hover {
     opacity: .5;
 }
 
@@ -126,7 +126,7 @@ button:hover {
     text-align: left;
 }
 
-#back {
+#go-home {
     background-color: blueviolet;
     color: white;
     padding: 5px;
