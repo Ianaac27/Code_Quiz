@@ -12,7 +12,6 @@
 //-----------------------------------------------------------
 
 var viewHighScore = document.getElementById("view-highscore");
-// var goHome = document.getElementById("go-home");
 var timer = document.getElementById("time");
 var mainHeader = document.querySelector(".main-header");
 var mainParagraph = document.querySelector(".main-paragraph");
@@ -234,35 +233,35 @@ function navigateFirstQuestion() {
   
       answerButton1.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        submitScore(); 
+        showScore(); 
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
         secondsLeft -= 1;
       }),
 
       answerButton2.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        submitScore(); 
+        showScore(); 
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
         secondsLeft -= 1; 
       }),
       
       answerButton3.addEventListener("click", function(event) { 
         clearInterval(timerInterval);
-        submitScore();
+        showScore(); 
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
         secondsLeft -= 1;  
       }),
       
       answerButton4.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        submitScore();
+        showScore(); 
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
         secondsLeft += 1;
       })
     }
 
-  //Submit Score display
-    function submitScore() {
+  //Show Score display
+    function showScore() {
       mainHeader.textContent = "Nice Work!";
       mainParagraph.textContent = "Your Score: " + secondsLeft;
       answerButton1.remove()
@@ -272,12 +271,33 @@ function navigateFirstQuestion() {
 
       highScores.style.display = "block";
     }
+
+  //Store Score
+
+    function storeScore(event) {
+      event.preventDefault()
+      var signature = initials.value;
+      // var playerArray = [];
+      
+      // if(JSON.parse(localStorage.getItem("array")) === undefined){
+      //     playerArray =[{name : signature, score : secondsLeft}];
+      // }
+      // else{
+      //     playerArray = JSON.parse(localStorage.getItem("array"));
+      // }
+
+      // localStorage.setItem("array", JSON.stringify(playerArray));
+      localStorage.setItem("player-score", secondsLeft + " " + signature);
+      
+      window.location.href = "storage.html";
+    } 
+
+    initialsButton.addEventListener("click", storeScore);
+    initials.addEventListener("submit",storeScore);
+
+    console.log(localStorage);
       
   //Viewing high-scores from home page
   viewHighScore.addEventListener("click", function(event) {
     window.location.href = "storage.html";
-
   });
-
-  //Going back to home page
- 
