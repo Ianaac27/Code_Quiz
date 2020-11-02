@@ -30,7 +30,8 @@ var correctAnswer= "Correct!";
 var wrongAnswer= "Wrong!";
 
 var timerInterval;
-var secondsLeft = 61;
+var secondsLeft = 76;
+var points = 0;
 
 // Starting the game
 startButton.addEventListener("click", function(event) {
@@ -43,9 +44,6 @@ startButton.addEventListener("click", function(event) {
      if(secondsLeft <= 0) {
        clearInterval(timerInterval);
        sendMessage();
-       secondsLeft= - 50;
-
-       console.log(score);
      }
    }, 1000); 
 
@@ -103,6 +101,14 @@ var questions = [
 }
 ];
 
+function subtractTimer() {
+  secondsLeft = secondsLeft - 5;
+}
+
+function addScore() {
+  points= points + 1;
+}
+
 // First question display
 function navigateFirstQuestion() {
     mainParagraph.textContent = questions[0].question;
@@ -112,24 +118,24 @@ function navigateFirstQuestion() {
     answerButton4.textContent = questions[0].answers[3];
 
     answerButton1.addEventListener("click", function(event) {
-      navigateSecondQuestion()   
+      navigateSecondQuestion();
+      addScore(); 
       previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-      secondsLeft += 5;
     }),
     answerButton2.addEventListener("click", function(event) {
-      navigateSecondQuestion()   
+      navigateSecondQuestion();
+      subtractTimer();   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-      secondsLeft -= 5;
     }),
     answerButton3.addEventListener("click", function(event) {
-      navigateSecondQuestion()   
+      navigateSecondQuestion();
+      subtractTimer();   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-      secondsLeft -= 5;
     }),
     answerButton4.addEventListener("click", function(event) {
-      navigateSecondQuestion()   
+      navigateSecondQuestion();
+      subtractTimer();   
       previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-      secondsLeft -= 5;
     })
   }
 
@@ -142,24 +148,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[1].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        navigateThirdQuestion()   
+        navigateThirdQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 2;
       }),
       answerButton2.addEventListener("click", function(event) {
-        navigateThirdQuestion()   
+        navigateThirdQuestion();
+        addScore();   
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-        secondsLeft += 2;
       }),
       answerButton3.addEventListener("click", function(event) {
-        navigateThirdQuestion()   
+        navigateThirdQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 2;
       }),
       answerButton4.addEventListener("click", function(event) {
-        navigateThirdQuestion()    
+        navigateThirdQuestion();
+        subtractTimer();    
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 2;
       })
     }
 
@@ -172,24 +178,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[2].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        navigateFourthQuestion()   
+        navigateFourthQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft - 1;
       }),
       answerButton2.addEventListener("click", function(event) {
-        navigateFourthQuestion()   
+        navigateFourthQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft - 1; 
       }),
       answerButton3.addEventListener("click", function(event) {
-        navigateFourthQuestion()   
+        navigateFourthQuestion();
+        addScore();   
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-        secondsLeft += 1;
       }),
       answerButton4.addEventListener("click", function(event) {
-        navigateFourthQuestion()   
+        navigateFourthQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft - 1;
       })
     }
   
@@ -202,24 +208,24 @@ function navigateFirstQuestion() {
       answerButton4.textContent = questions[3].answers[3];
   
       answerButton1.addEventListener("click", function(event) {
-        navigateFifthQuestion()   
+        navigateFifthQuestion();
+        subtractTimer();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1;
       }),
       answerButton2.addEventListener("click", function(event) {
-        navigateFifthQuestion()     
+        navigateFifthQuestion();
+        subtractTimer();     
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1;
       }),
       answerButton3.addEventListener("click", function(event) {
-        navigateFifthQuestion()      
+        navigateFifthQuestion();
+        addScore();      
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-        secondsLeft += 1;
       }),
       answerButton4.addEventListener("click", function(event) {
-        navigateFifthQuestion()     
+        navigateFifthQuestion();
+        subtractTimer();     
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1;
       })
     }
 
@@ -233,37 +239,37 @@ function navigateFirstQuestion() {
   
       answerButton1.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        showScore(); 
+        subtractTimer();
+        showScore();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1;
       }),
 
       answerButton2.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        showScore(); 
+        subtractTimer();
+        showScore();  
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1; 
       }),
       
       answerButton3.addEventListener("click", function(event) { 
         clearInterval(timerInterval);
-        showScore(); 
+        subtractTimer();
+        showScore();   
         previousAnswer.textContent = "Previous Answer: " + wrongAnswer;
-        secondsLeft -= 1;  
       }),
       
       answerButton4.addEventListener("click", function(event) {
         clearInterval(timerInterval);
-        showScore(); 
+        addScore();
+        showScore();
         previousAnswer.textContent = "Previous Answer: " + correctAnswer;
-        secondsLeft += 1;
       })
     }
 
   //Show Score display
     function showScore() {
       mainHeader.textContent = "Nice Work!";
-      mainParagraph.textContent = "Your Score: " + secondsLeft;
+      mainParagraph.textContent = "Your Score: " + points;
       answerButton1.remove()
       answerButton2.remove()
       answerButton3.remove()
@@ -278,7 +284,7 @@ function navigateFirstQuestion() {
       event.preventDefault()
       var signature = initials.value;
   
-      localStorage.setItem("player-score", secondsLeft + " " + signature);
+      localStorage.setItem("player-score", points + " " + signature);
       
       window.location.href = "storage.html";
     } 
