@@ -5,7 +5,7 @@ Here is a quiz that features JavaScript functions, as well as, page layout and s
 # Screenshot
 Here is a mock of the Coding Quiz.
 
-![Coding_Quiz](assets/screenshotPG.png)
+![Coding_Quiz](assets/screenshot.png)
 
 # Link
 Take a look at the live version [here.](https://ianaac27.github.io/Code_Quiz/)
