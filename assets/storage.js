@@ -19,5 +19,5 @@ function displayScoreListitem(){
         playerList.appendChild(topTen); 
         console.log(playerArray);
     }// }
-    
+
 displayScoreListitem()

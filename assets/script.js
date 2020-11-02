@@ -1,16 +1,3 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question -------CHECK!!!
-// WHEN I answer a question
-// THEN I am presented with another question -------CHECK!!!
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock --------- NEED FIX
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over ---------------------- CHECK!!!
-// WHEN the game is over
-// THEN I can save my initials and score ------------------Have scores sent to localstorage, cannot display yet
-//-----------------------------------------------------------
-
 var viewHighScore = document.getElementById("view-highscore");
 var timer = document.getElementById("time");
 var mainHeader = document.querySelector(".main-header");
@@ -30,7 +17,7 @@ var correctAnswer= "Correct!";
 var wrongAnswer= "Wrong!";
 
 var timerInterval;
-var secondsLeft = 76;
+var secondsLeft = 91;
 var points = 0;
 
 // Starting the game
@@ -79,30 +66,31 @@ function sendMessage() {
 // Quiz questions  
 var questions = [
   { 
-  'question': 'What color are apples?',
-  'answers': ['Red','Blue','Purple','White'],
+  'question': 'Which HTML tag do you use to create a numbered list?',
+  'answers': ['<ol>','<ul>','<number>','<dl>'],
   // correct answer: 0
 }, {
-  'question': 'How long is a mile?',
-  'answers': ['450 ft','5280 ft','2580 ft','4500 ft'],
+  'question': 'Which HTML tag is used to define an internal style sheet?',
+  'answers': ['<css>','<style>','<script>','<colors>'],
   // correct answer: 1
 }, {
-  'question': 'What is the name of the football team based in Seattle?',
-  'answers': ['Mariners','Cougars','Seahawks','Totems'],
+  'question': 'What does CSS stand for?',
+  'answers': ['Computer Style Sheets','Creative Style Sheets','Cascading Style Sheets','Colorful Style Sheet'],
   // correct answer: 2
 }, {
-  'question': 'How many letters is the word Mississippi?',
-  'answers': ['11','10','12','9'],
+  'question': 'How do you write "Hello World" in an alert box using JavaScript?',
+  'answers': ['msgBox("Hello World");','msg("Hello World");','alert("Hello World");','alertBox("Hello World");'],
   // correct answer: 2
 }, {
-  'question': 'Who was the 2nd President of the United States?',
-  'answers': ['Thomas Jefferson','Abraham Lincoln','Andrew Jackson','John Adams'],
+  'question': 'Inside which HTML element do we put the JavaScript?',
+  'answers': ['<scripting>','<javascript>','<js>','<script>'],
   // correct answer: 3
 }
 ];
 
 function subtractTimer() {
   secondsLeft = secondsLeft - 5;
+  points= points + 0;
 }
 
 function addScore() {
