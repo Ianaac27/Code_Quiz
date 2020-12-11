@@ -1,6 +1,6 @@
 # Code_Quiz
 # Description
-Here is a quiz that features JavaScript functions, as well as, page layout and styling utulizing HTML and CSS. This quiz also features saved high-scores that can be found in local storage. Have fun!
+Here is a quiz that features JavaScript functions, as well as, page layout and styling utilizing HTML and CSS. This quiz also features saved high-scores that can be found in local storage. Have fun!
 
 ## Table of Contents
 
